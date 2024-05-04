@@ -1,1 +1,134 @@
-/* You can add global styles to this file, and also import other style files */
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  src:
+      url("./assets/fonts/Roboto-Regular.woff2") format("woff2"),
+      url("./assets/fonts/Roboto-Regular.woff") format("woff");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  src:
+      url("./assets/fonts/Roboto-Medium.woff2") format("woff2"),
+      url("./assets/fonts/Roboto-Medium.woff") format("woff");
+  font-display: swap;
+}
+
+// закончилась оплата за фигму, поэтому в стилях мог что то пропустить при верстке
+// (без дев режима это сделать в десятки раз легче)
+
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  scrollbar-color: #1074CC #e0e0e0;
+  scrollbar-width: thin;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  color: #2A3033;
+  background-color: #F5F5F5;
+  min-width: 320px;
+  overflow-x: hidden;
+}
+
+main {
+  position: relative;
+  overflow: hidden;
+}
+
+blockquote {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+b {
+  font-weight: 600;
+}
+
+ul,
+ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+button {
+  color: inherit;
+}
+
+button:not(:disabled) {
+  cursor: pointer;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  cursor: pointer;
+}
+
+figure,
+p {
+  margin: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+ul {
+  list-style: none;
+}
+
+.icon-btn {
+  padding: 8px;
+  flex-shrink: 0;
+  border: 0;
+  background-color: transparent;
+  transition: color 0.3s;
+}
+
+.visually-hidden {
+  position: absolute;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}

@@ -1,0 +1,48 @@
+<header class="header">
+  <nav class="header__inner" >
+    <button class="burger-btn" [ngClass]="menuOpen ? 'active' : ''" (click)="menuOpen = !menuOpen" aria-label="открыть/закрыть меню">
+      <span class="burger-btn__line"></span>
+      <span class="burger-btn__line"></span>
+      <span class="burger-btn__line"></span>
+      <span class="burger-btn__line"></span>
+      <span class="burger-btn__line"></span>
+      <span class="burger-btn__line"></span>
+    </button>
+
+    <a class="logo" routerLink="/">
+      <img class="logo__img" src="../../../../assets/images/logo.png" width="150" height="56" alt="логотип Tile Expert">
+    </a>
+
+    <div class="header__group" >
+      <ul class="menu" [ngClass]="menuOpen ? 'active' : ''">
+        <li *ngFor="let link of menuLinks" class="menu__item">
+          <a class="menu__link" routerLink="{{link.href}}">
+            <shared-svg [icon]="link.svg"></shared-svg>
+            {{link.text}}
+          </a>
+        </li>
+      </ul>
+
+      <button class="header__search-btn icon-btn" (click)="headerSearchService.openSearch()" aria-label="открыть поиск" >
+        <shared-svg [icon]="'search'"></shared-svg>
+      </button>
+
+      <shard-header-search *ngIf="headerSearchService.getIsOpen()"></shard-header-search>
+    </div>
+
+    <button class="header__plus-btn icon-btn" aria-label="нажми на плюс">
+      <shared-svg [icon]="'plus'"></shared-svg>
+    </button>
+
+    <button class="header__notification icon-btn" aria-label="оповещения">
+      <shared-svg [icon]="'notification'"></shared-svg>
+      <span class="header__count">
+        32
+      </span>
+    </button>
+
+    <a class="user" routerLink="/">
+      <img class="user__img" src="../../../../assets/images/avatar.png" alt="ваша аватарка">
+    </a>
+  </nav>
+</header>

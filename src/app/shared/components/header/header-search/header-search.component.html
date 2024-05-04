@@ -1,0 +1,69 @@
+<form class="header-search" [ngClass]="headerSearchService.getClose() ? 'close' : '' ">
+  <div class="header-search__top">
+    <button class="header-search__back icon-btn" type="button" (click)="headerSearchService.mobileCloseSearch()">
+      <shared-svg [icon]="'arrow-back'"></shared-svg>
+    </button>
+
+    <input (focus)="showDropdown = true" class="header-search__input" type="text" aria-label="Что вы хотите найти"
+      placeholder="Поисковый запрос">
+  </div>
+
+  <div [ngClass]="showDropdown ? 'active' : ''" class="header-search__dropdown">
+    <div class="header-search__left" [ngClass]="showGradient ? 'show-gradient' : ''">
+      <span class="header-search__title">История</span>
+
+      <ul class="history" #scrollableDiv (scroll)="onScroll($event)">
+        <li *ngFor="let text of history" class="history__item">
+          <button class="history__button">
+            {{text}}
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <div class="header-search__right">
+      <label class="header-search__label input-wrapper">
+        <span class="input-wrapper__text">
+          Автор
+        </span>
+        <input class="input-wrapper__input" type="text" name="" aria-label="Автор" placeholder="Имя или должность">
+      </label>
+
+      <ul class="check-list">
+        <li *ngFor="let text of checkList1" class="check-list__item">
+          <label class="check-list__label">
+            <input class="check-list__input visually-hidden" type="checkbox" name="checkbox1">
+            <span class="check-list__fake">
+              <shared-svg [icon]="'check'"></shared-svg>
+            </span>
+            <span class="check-list__label-text">
+              {{text}}
+            </span>
+          </label>
+        </li>
+      </ul>
+
+      <fieldset class="header-search__fieldset">
+        <legend class="header-search__legend">
+          Только
+        </legend>
+
+        <ul class="check-list">
+          <li *ngFor="let text of checkList2" class="check-list__item">
+            <label class="check-list__label">
+              <input class="check-list__input visually-hidden" type="checkbox" name="checkbox2">
+              <span class="check-list__fake">
+                <shared-svg [icon]="'check'"></shared-svg>
+              </span>
+              <span class="check-list__label-text">
+                {{text}}
+              </span>
+            </label>
+          </li>
+        </ul>
+      </fieldset>
+    </div>
+  </div>
+
+
+</form>
